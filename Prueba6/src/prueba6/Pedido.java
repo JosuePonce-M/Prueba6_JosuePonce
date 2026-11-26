@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import prueba6.Enums.Estado;
 import prueba6.Enums.Modalidad;
+import prueba6.Excepciones.DatoInvalidoException;
 
 public class Pedido implements Serializable {
 
@@ -23,7 +24,10 @@ public class Pedido implements Serializable {
         estado = Estado.PENDIENTE;
     }
 
-    public void agregarProducto(Producto producto, int cantidad) {
+   public void agregarProducto(Producto producto, int cantidad) throws DatoInvalidoException {
+        if (cantidad <= 0) {
+            throw new DatoInvalidoException("La cantidad debe ser mayor a 0.");
+        }
         for (InfoPedido d : detalles) {
             if (d.getProducto().getCodigo() == producto.getCodigo()) {
                 d.setCantidad(d.getCantidad() + cantidad);
