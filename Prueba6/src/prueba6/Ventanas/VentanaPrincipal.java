@@ -69,10 +69,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             new VentanaProductos(gestor).setVisible(true);
         } else if (e.getSource() == btnPedidos) {
             new VentanaPedidos(gestor).setVisible(true);
-        } else if (e.getSource() == btnConsulta) {
-            new VentanaConsulta(gestor).setVisible(true);
-        } else if (e.getSource() == btnAlmacenamiento) {
-            new VentanaAlmacenamiento(gestor).setVisible(true);
         } else if (e.getSource() == btnSalir) {
             try {
                 gestor.guardar();
